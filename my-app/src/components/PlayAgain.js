@@ -2,7 +2,7 @@ import React from 'react'
 
 const PlayAgain = ({onClick}) => {
     return (
-        <button class="classExtraBtn" onClick={() => onClick()}>Play Again</button>
+        <button className = 'classExtraBtn' onClick={() => onClick()}>Play Again</button>
     );
 };
 

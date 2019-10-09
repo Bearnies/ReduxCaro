@@ -7,12 +7,12 @@ import GameMovesHistory from '../containers/GameMovesHistory'
 
 function Game() {
   return (
-    <div className="game">
-      <div className="game-board">
+    <div className = 'game'>
+      <div className = 'game-board'>
         <GameBoard></GameBoard>
       </div>
 
-      <div className="game-info">
+      <div className = 'game-info'>
         <GamePlayAgain></GamePlayAgain>
         <GameMovesSorting></GameMovesSorting>
         <p></p>

@@ -9,6 +9,6 @@ const mapDispatchToProps = dispatch => ({
 });
   
 export default connect(
-    null, //mamapStateToProps,
+    null, //mapStateToProps,
     mapDispatchToProps
 )(PlayAgain);

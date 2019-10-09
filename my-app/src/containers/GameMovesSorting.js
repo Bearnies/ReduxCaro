@@ -1,14 +1,19 @@
 import Sorting from '../components/Sorting';
 import {connect} from 'react-redux';
-import {sortAscend} from '../actions/actions';
+import {sortAscend, isAscending} from '../actions/actions';
+
+const mapStateToProps = state => ({
+  isAscending: state.isAscending
+});
 
 const mapDispatchToProps = dispatch => ({
     onClick: () => {
-      dispatch(sortAscend())
+      dispatch(sortAscend());
+      dispatch(isAscending());
     }
 });
   
 export default connect(
-    null, //mamapStateToProps,
+    mapStateToProps,
     mapDispatchToProps
 )(Sorting);

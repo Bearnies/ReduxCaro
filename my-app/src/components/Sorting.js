@@ -1,9 +1,18 @@
 import React from 'react'
 
-const Sorting = ({onClick}) => {
-    return (
-        <button class="classExtraBtn" onClick={() => onClick()}>Sort{Sorting ? ' (Descend)' : ' (Ascend)'}</button>
-    );
+const Sorting = ({onClick, isAscending}) => {
+    if (isAscending === true)
+    {
+        return (
+            <button className = 'classExtraBtn' onClick={() => onClick()}>Sort (Descend)</button>
+        ); 
+    }
+    else if (isAscending === false)
+    {
+        return (
+            <button className = 'classExtraBtn' onClick={() => onClick()}>Sort (Ascend)</button>
+        ); 
+    }
 };
 
 export default Sorting;

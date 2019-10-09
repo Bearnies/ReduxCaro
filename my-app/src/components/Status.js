@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
-const Status = ({ winner, xIsNext }) => {
+const Status = ({winner, xIsNext}) => {
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
@@ -15,8 +15,7 @@ const Status = ({ winner, xIsNext }) => {
 };
 
 Status.propTypes = {
-  xIsNext: propTypes.bool.isRequired,
-  winner: propTypes.string.isRequired
+  xIsNext: propTypes.bool.isRequired
 };
 
 export default Status;

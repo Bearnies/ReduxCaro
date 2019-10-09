@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     onClick: move => {
       dispatch(newstepNumber(move));
-      dispatch(newnextPlayer(move % 2 === 1)) //
+      dispatch(newnextPlayer(move % 2 === 0));
     }
 });
   

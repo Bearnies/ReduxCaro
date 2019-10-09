@@ -3,46 +3,69 @@ export const NEW_NEXTPLAYER = 'NEW_NEXTPLAYER'
 export const GET_WINSQUARES = 'GET_WINSQUARES'
 export const PLAY_AGAIN = 'PLAY_AGAIN'
 export const SORT_ASCEND = 'SORT_ASCEND'
+export const IS_ASCENDING = 'IS_ASCENDING'
 export const NEW_WINNER = 'NEW_WINNER'
 export const NEW_HISTORY = 'NEW_HISTORY'
 export const NEW_STEPNUMBER = 'NEW_STEPNUMBER'
 
-export const nextPlayer = () => ({
-    type: 'NEXT_PLAYER',
-});
+export function nextPlayer() {
+  return {
+    type: 'NEXT_PLAYER'
+  }
+}
 
-export const newnextPlayer = (newnextplayer) => ({
+export function newnextPlayer(newnextplayer) {
+  return {
     type: 'NEW_NEXTPLAYER',
     newnextplayer
-});
+  }
+}
 
-export const newwinSquares = (winSquares) => ({
+export function newwinSquares(winSquares) {
+  return {
     type: 'GET_WINSQUARES',
     winSquares
-});
+  }
+}
 
-export const newWinner = (winner) => ({
+export function newWinner(winner) {
+  return {
     type: 'NEW_WINNER',
     winner
-});
+  }
+}
 
-export const playAgain = () => ({
+export function playAgain() {
+  return {
     type: 'PLAY_AGAIN'
-});
+  }
+}
 
-export const sortAscend = () => ({
+export function sortAscend() {
+  return {
     type: 'SORT_ASCEND'
-});
+  }
+}
 
-export const newHistory = (history) => ({
+export function isAscending() {
+  return {
+    type: 'IS_ASCENDING'
+  }
+}
+
+export function newHistory (history) {
+  return {
     type: 'NEW_HISTORY',
     history
-});
+  }
+}
 
-export const newstepNumber = (stepNumber) => ({
+export function newstepNumber(stepNumber) {
+  return {
     type: 'NEW_STEPNUMBER',
     stepNumber
-});
+  }
+}
 
 function calculateWinnerHorizontal(row, col, squares) {
     let latestClick = squares[row][col];
@@ -353,19 +376,19 @@ export function handleClick(row, col) {
         squares[row][col] = xIsNext ? 'X' : 'O';
 
         //Calculate Winner
-        const winHorizontal = calculateWinnerHorizontal(row,col,squares);
-        const winVertical = calculateWinnerVertical(row,col,squares);
-        const winLCross = calculateWinnerLCross(row,col,squares);
-        const winRCross = calculateWinnerRCross(row,col,squares);
+        const winHorizontal = calculateWinnerHorizontal(row, col, squares);
+        const winVertical = calculateWinnerVertical(row, col, squares);
+        const winLCross = calculateWinnerLCross(row, col, squares);
+        const winRCross = calculateWinnerRCross(row, col, squares);
         
-        if (winVertical.result) {
-          const result = winVertical.winLine;
+        if (winHorizontal.result) {
+          const result = winHorizontal.winLine;
           dispatch(newWinner(squares[row][col]));
           dispatch(newwinSquares(winSquares.concat(result)));
         }
-        
-        else if (winHorizontal.result) {
-          const result = winHorizontal.winLine;
+
+        else if (winVertical.result) {
+          const result = winVertical.winLine;
           dispatch(newWinner(squares[row][col]));
           dispatch(newwinSquares(winSquares.concat(result)));
         }
@@ -382,7 +405,7 @@ export function handleClick(row, col) {
           dispatch(newwinSquares(winSquares.concat(result)));
         }
 
-        dispatch(newHistory(currhistory.concat(squares[row][col], row, col)));
+        dispatch(newHistory(currhistory.concat([{row, col}])));
         dispatch(nextPlayer());
         dispatch(newstepNumber(currhistory.length));
     }

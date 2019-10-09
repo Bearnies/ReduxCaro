@@ -17,7 +17,7 @@ class Board extends React.Component {
         )  
       }
       return (
-        <div className='board-row'>
+        <div className = 'board-row' key={row}>
           {board}
         </div>
       );

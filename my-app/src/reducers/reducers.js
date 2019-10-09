@@ -4,6 +4,7 @@ import {
     NEW_NEXTPLAYER,
     PLAY_AGAIN,
     SORT_ASCEND,
+    IS_ASCENDING,
     GET_WINSQUARES,
     NEW_WINNER,
     NEW_HISTORY,
@@ -16,6 +17,8 @@ const xIsNext = (state = true, action) => {
         return !state
       case NEW_NEXTPLAYER:
         return action.newnextplayer
+      case PLAY_AGAIN:
+        return true
       default:
         return state
     }
@@ -25,11 +28,20 @@ const sortAscend = (state = false, action) => {
     switch (action.type) {
       case SORT_ASCEND:
         return !state
-      case PLAY_AGAIN:
-        return false
       default:
         return state
     }
+}
+
+const isAscending = (state = false, action) => {
+  switch (action.type) {
+    case IS_ASCENDING:
+      return !state
+    case PLAY_AGAIN:
+      return state
+    default:
+      return state
+  }
 }
 
 const winSquares = (state = [], action) => {
@@ -79,6 +91,7 @@ const stepNumber = (state = 0, action) => {
 export default combineReducers({
     xIsNext,
     sortAscend,
+    isAscending,
     winSquares,
     winner,
     history,

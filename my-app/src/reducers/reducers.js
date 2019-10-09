@@ -47,7 +47,7 @@ const isAscending = (state = false, action) => {
 const winSquares = (state = [], action) => {
     switch (action.type) {
       case GET_WINSQUARES:
-        return action.winSquares
+        return action.newwinSquares
       case PLAY_AGAIN:
         return []
       default:
@@ -58,7 +58,7 @@ const winSquares = (state = [], action) => {
 const winner = (state = null, action) => {
     switch (action.type) {
       case NEW_WINNER:
-        return action.winner
+        return action.newwinner
       case PLAY_AGAIN:
         return null
       default:
@@ -69,7 +69,7 @@ const winner = (state = null, action) => {
 const history = (state = [{row: null, col: null}], action) => {
     switch (action.type) {
       case NEW_HISTORY:
-        return action.history
+        return action.newhistory
       case PLAY_AGAIN:
         return [{row: null, col: null}]
       default:
@@ -80,7 +80,7 @@ const history = (state = [{row: null, col: null}], action) => {
 const stepNumber = (state = 0, action) => {
     switch (action.type) {
       case NEW_STEPNUMBER:
-        return action.stepNumber
+        return action.newstepNumber
       case PLAY_AGAIN:
         return 0
       default:

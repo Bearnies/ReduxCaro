@@ -1,10 +1,11 @@
 import React from 'react';
 
 function Square(props) {
+  const {className, onClick, value} = props;
     return (
-      <button className = {props.className} 
-        onClick = {props.onClick}>
-        {props.value}
+      <button className = {className} 
+        onClick = {onClick}>
+        {value}
       </button>
     ); 
 }

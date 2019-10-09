@@ -21,17 +21,17 @@ export function newnextPlayer(newnextplayer) {
   }
 }
 
-export function newwinSquares(winSquares) {
+export function newwinSquares(newwinSquares) {
   return {
     type: 'GET_WINSQUARES',
-    winSquares
+    newwinSquares
   }
 }
 
-export function newWinner(winner) {
+export function newWinner(newwinner) {
   return {
     type: 'NEW_WINNER',
-    winner
+    newwinner
   }
 }
 
@@ -53,17 +53,17 @@ export function isAscending() {
   }
 }
 
-export function newHistory (history) {
+export function newHistory (newhistory) {
   return {
     type: 'NEW_HISTORY',
-    history
+    newhistory
   }
 }
 
-export function newstepNumber(stepNumber) {
+export function newstepNumber(newstepNumber) {
   return {
     type: 'NEW_STEPNUMBER',
-    stepNumber
+    newstepNumber
   }
 }
 
